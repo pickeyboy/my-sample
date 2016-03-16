@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">My Sample</string>
+
+    <!-- navigation drawer items -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="nav_header_profile">Profile</string>
+    <string name="nav_menu_settings">Settings</string>
+
+    <!-- overflow action menu items -->
+    <string name="action_menu_settings">Settings</string>
+
+    <!-- button labels -->
+    <string name="button_allow">Allow</string>
+    <string name="button_deny">Deny</string>
+    <string name="button_exit">Exit</string>
+    <string name="button_okay">Okay</string>
+
+</resources>

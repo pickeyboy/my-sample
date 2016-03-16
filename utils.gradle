@@ -1,0 +1,16 @@
+Properties properties = new Properties();
+properties.load(new File(rootDir.absolutePath + '/local.properties').newDataInputStream());
+
+/**
+ * In local.properties set common.lib.dir if you want to make dev changes to common module.
+ * e.g. common.lib.dir=/../android-common/common
+ */
+ext.COMMON_LIB_DIR = new File(rootDir.absolutePath + properties.get('common.lib.dir'));
+
+ext.hasCommonLib = {
+    return COMMON_LIB_DIR.exists();
+}
+
+ext.isBuildServer = {
+    return System.getenv('BUILD_TAG') != null;
+}

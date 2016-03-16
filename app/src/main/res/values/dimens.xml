@@ -1,0 +1,16 @@
+<resources>
+
+    <!-- font size -->
+    <dimen name="header_text">28dp</dimen>
+    <dimen name="label_text">16dp</dimen>
+    <dimen name="content_text">16dp</dimen>
+
+    <!-- margin/padding -->
+    <dimen name="inset_half_size">3dp</dimen>
+    <dimen name="inset_size">6dp</dimen>
+
+    <dimen name="section_padding">12dp</dimen>
+    <dimen name="header_padding">6dp</dimen>
+    <dimen name="content_spacing">3dp</dimen>
+
+</resources>

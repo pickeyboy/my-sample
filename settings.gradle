@@ -1,0 +1,3 @@
+apply from: 'utils.gradle'
+
+include ':app'

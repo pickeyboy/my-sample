@@ -1,0 +1,76 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/teal</item>
+        <item name="colorPrimaryDark">@color/dark_teal</item>
+        <item name="colorAccent">@color/teal</item>
+        <item name="android:windowBackground">@color/teal</item>
+
+        <item name="labelValueViewStyle">@style/LabelValueViewStyle</item>
+    </style>
+    
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    
+    <style name="LabelValueViewStyle" parent="SectionLayout">
+        <item name="android:paddingBottom">@dimen/content_spacing</item>
+        <item name="android:paddingTop">@dimen/content_spacing</item>
+    </style>
+
+    <style name="WrapContentLayout">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="MatchParentLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="SectionScrollView" parent="MatchParentLayout">
+        <item name="android:fillViewport">true</item>
+        <item name="android:scrollbars">none</item>
+        <item name="android:fadingEdge">none</item>
+    </style>
+
+    <style name="SectionLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="SectionContainer" parent="SectionLayout">
+        <item name="android:layout_margin">@dimen/inset_half_size</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="SectionPadded" parent="SectionContainer">
+        <item name="android:background">@android:color/background_light</item>
+        <item name="android:padding">@dimen/section_padding</item>
+    </style>
+
+    <style name="SectionHeader" parent="WrapContentLayout">
+        <item name="android:paddingBottom">@dimen/header_padding</item>
+        <item name="android:textSize">@dimen/header_text</item>
+        <item name="fontPath">fonts/waltograph42.ttf</item>
+    </style>
+
+    <style name="SectionLabel" parent="WrapContentLayout">
+        <item name="android:textSize">@dimen/label_text</item>
+        <item name="fontPath">fonts/waltograph42.ttf</item>
+    </style>
+
+    <style name="SectionContent" parent="SectionLayout">
+        <item name="android:textSize">@dimen/content_text</item>
+        <item name="fontPath">fonts/waltograph42.ttf</item>
+    </style>
+
+
+</resources>

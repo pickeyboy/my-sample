@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="labelValueViewStyle" format="reference" />
+
+    <declare-styleable name="LabelValueView">
+        <attr name="label" format="string" />
+        <attr name="value" format="string" />
+    </declare-styleable>
+
+    <!-- fontPath attribute used for Calligraphy library-->
+    <attr name="fontPath" format="string" />
+</resources>

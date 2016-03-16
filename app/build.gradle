@@ -1,0 +1,102 @@
+def final moaApplicationId = 'au.com.ash.sample';
+def final moaVersionCode = 250;
+def final moaVersionName = '4.0';
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'me.tatarka:gradle-retrolambda:3.2.5'
+    }
+}
+
+apply from: '../utils.gradle'
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'android-apt'
+apply plugin: 'maven'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode moaVersionCode
+        versionName moaVersionName
+
+    }
+
+    productFlavors {
+        dev {
+            buildConfigField('String', 'SCHEMA', '"http"')
+            buildConfigField('String', 'HOST', '"0.0.0.0"')
+            buildConfigField('int', 'PORT', '8080')
+        }
+    }
+
+    productFlavors.all {
+        applicationId 'prod'.equals(name) ? moaApplicationId : moaApplicationId + '.' + name
+
+        resValue "string", "account_type", applicationId + '.oauth2'
+    }
+
+    variantFilter { variant ->
+        if ('release'.equals(variant.buildType.name) && !'prod'.equals(variant.getFlavors().get(0).name)) {
+            variant.setIgnore(true);
+        }
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix '.debug'
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    packagingOptions {
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/notice.txt'
+    }
+}
+
+repositories {
+    mavenLocal()
+}
+
+dependencies {
+    def supportVersion = '23.2.0'
+    compile 'com.android.support:appcompat-v7:' + supportVersion
+    compile 'com.android.support:design:' + supportVersion
+    compile 'com.android.support:support-v4:' + supportVersion
+    compile 'uk.co.chrisjenx:calligraphy:2.1.0'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:2.0.3-beta'
+    testCompile 'org.robolectric:robolectric:3.0-rc3'
+}
